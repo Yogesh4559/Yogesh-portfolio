@@ -186,11 +186,19 @@ body.nav-active { overflow: hidden; }
   gap: 50px;
 }
 
-.hero-content {
-  display: flex;
-  align-items: center; /* vertically center */
-  gap: 20px; /* space between button and text */
+.hero .container.hero-content {
+  display: flex;           /* horizontal layout */
+  align-items: center;     /* vertically center button & text */
+  gap: 40px;               /* space between button and text */
+  flex-wrap: wrap;         /* wrap on small screens */
 }
+
+.hero .hero-text {
+  color: var(--text-white);
+  font-size: var(--fontSize-5);
+  max-width: 600px;        /* limit width of text */
+}
+
 
 .hero-text {
   max-width: 500px; /* optional: limit width for better layout */
