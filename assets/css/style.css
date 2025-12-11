@@ -196,7 +196,7 @@ body.nav-active { overflow: hidden; }
 .hero .hero-text {
   color: var(--text-white);
   font-size: var(--fontSize-5);
-  max-width: 800px;        /* limit width of text */
+  max-width: 600px;        /* limit width of text */
 }
 
 
