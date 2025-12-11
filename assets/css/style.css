@@ -188,9 +188,14 @@ body.nav-active { overflow: hidden; }
 
 .hero-content {
   display: flex;
-  align-items: center;
-  gap: 20px;
+  align-items: center; /* vertically center */
+  gap: 20px; /* space between button and text */
 }
+
+.hero-text {
+  max-width: 500px; /* optional: limit width for better layout */
+}
+
 
 .hero-text {
   color: var(--text-white);
