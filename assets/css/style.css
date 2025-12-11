@@ -15,18 +15,15 @@
   --bg-smoky-black: hsla(0, 0%, 6%, 1);
   --bg-black: hsla(0, 0%, 0%, 1);
 
-  /* gradient colors */
   --gradient-1: linear-gradient(to top, var(--bg-black) 0%, transparent 40%);
   --gradient-2: radial-gradient(circle at 75% 100%, hsla(79, 100%, 70%, 0.3) 0%, transparent 100%);
 
-  /* text colors */
   --text-white: hsla(0, 0%, 100%, 1);
   --text-light-gray: hsla(240, 1%, 83%, 1);
   --text-rich-black-fogra-29: hsla(216, 42%, 12%, 1);
   --text-smoky-black: hsla(0, 0%, 6%, 1);
   --text-black: hsla(0, 0%, 0%, 1);
 
-  /* border colors */
   --border-white: hsla(0, 0%, 100%, 1);
   --border-light-gray: hsla(240, 1%, 83%, 1);
   --border-gainsboro: hsla(220, 13%, 91%, 1);
@@ -37,7 +34,6 @@
   --fontFamily-recoleta: 'Recoleta';
   --fontFamily-roboto: 'Roboto', sans-serif;
 
-  /* font size */
   --fontSize-1: 4.6rem;
   --fontSize-2: 4.5rem;
   --fontSize-3: 4rem;
@@ -49,18 +45,14 @@
   --fontSize-9: 1.5rem;
   --fontSize-10: 1.4rem;
 
-  /* font weight */
   --weight-regular: 400;
   --weight-medium: 500;
 
-  /* SPACING */
   --section-spacing: 70px;
 
-  /* BORDER RADIUS */
   --radius-pill: 500px;
   --radius-circle: 50%;
 
-  /* TRANSITION */
   --transition-1: 0.25s ease;
   --transition-2: 0.5s ease;
   --transition-3: 1000ms cubic-bezier(0.03, 0.98, 0.52, 0.99) 0s;
@@ -73,24 +65,22 @@
 \*-----------------------------------*/
 *,
 *::before,
-*::after { margin: 0; padding: 0; box-sizing: border-box; }
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 li { list-style: none; }
-
 a, img, span, input, button, textarea, ion-icon { display: block; }
 
 a { color: inherit; text-decoration: none; }
-
 img { height: auto; }
 
 input, button, textarea { background: none; border: none; font: inherit; }
-
 input, textarea { width: 100%; }
-
 button { cursor: pointer; }
-
 ion-icon { pointer-events: none; }
-
 address { font-style: normal; }
 
 html {
@@ -108,13 +98,10 @@ body {
 }
 
 body.loaded { overflow-y: auto; }
-
 body.nav-active { overflow: hidden; }
 
 ::-webkit-scrollbar { width: 5px; }
-
 ::-webkit-scrollbar-track { border-inline-start: 1px solid var(--border-eerie-black); }
-
 ::-webkit-scrollbar-thumb { background-color: var(--bg-white); }
 
 /*-----------------------------------*\
@@ -126,7 +113,6 @@ body.nav-active { overflow: hidden; }
   position: relative;
   z-index: 1;
 }
-
 .btn:hover::before,
 .btn:hover::after {
   content: "";
@@ -140,21 +126,19 @@ body.nav-active { overflow: hidden; }
   will-change: transform;
   pointer-events: none;
 }
-
-.btn:hover::after { border: 1px solid var(--bg-white); transform: scale(1.2); opacity: 0; }
-
-.btn:hover:is(:hover, :focus-visible)::before { transform: scale(0.5); opacity: 0; }
-
-.btn:hover:is(:hover, :focus-visible)::after { transform: scale(1); opacity: 1; }
+.btn:hover::after {
+  border: 1px solid var(--bg-white);
+  transform: scale(1.2);
+  opacity: 0;
+}
+.btn:is(:hover, :focus-visible)::before { transform: scale(0.5); opacity: 0; }
+.btn:is(:hover, :focus-visible)::after { transform: scale(1); opacity: 1; }
 
 .text-center { text-align: center; }
-
 .has-before, .has-after { position: relative; z-index: 1; }
-
 .has-before::before, .has-after::after { content: ""; position: absolute; }
 
 .img-holder { aspect-ratio: var(--width) / var(--height); overflow: hidden; background-color: var(--bg-jet); }
-
 .img-cover { width: 100%; height: 100%; object-fit: cover; }
 
 [data-tilt] { transition: var(--transition-3); }
@@ -165,6 +149,30 @@ body.nav-active { overflow: hidden; }
   font-weight: var(--weight-regular);
 }
 
+.h1 { font-size: var(--fontSize-2); line-height: 1.2; }
+.h2, .h3, .h4, .h5 { line-height: 1.3; }
+.h2 { font-size: var(--fontSize-3); }
+.h3 { font-size: var(--fontSize-4); }
+.h4 { font-size: var(--fontSize-5); }
+.h5 { font-size: var(--fontSize-7); }
+.h6 { font-size: var(--fontSize-6); }
+
+.btn {
+  color: var(--text-white);
+  font-size: var(--fontSize-9);
+  font-weight: var(--weight-medium);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: max-content;
+  height: 56px;
+  padding-inline: 30px;
+}
+.btn::before { background-color: var(--bg-smoky-black); }
+.btn ion-icon { font-size: 1.8rem; --ionicon-stroke-width: 50px; }
+
+.section { padding-block: var(--section-spacing); overflow-x: hidden; }
+
 /*-----------------------------------*\
   #HERO
 \*-----------------------------------*/
@@ -173,54 +181,107 @@ body.nav-active { overflow: hidden; }
   padding-block-start: 120px;
 }
 
-.hero .container { display: grid; gap: 50px; }
-
-.banner-outline { position: relative; max-width: max-content; margin-inline: auto; }
-
-.banner-outline::after { top: 20px; right: 0; width: 100%; height: 100%; outline: 1px solid var(--border-eerie-black); border-radius: var(--radius-pill); }
-
-.hero-banner { position: relative; border-radius: var(--radius-pill); }
-
-.hero-banner::after { top: 0; left: 0; bottom: 0; right: 0; background-image: var(--gradient-1); opacity: 0.7; pointer-events: none; }
-
-.banner-outline .span {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: var(--fontSize-4);
-  min-width: max-content;
-  z-index: 1;
+.hero .container {
+  display: grid;
+  gap: 50px;
 }
 
-.hero .btn { margin-block: 20px; margin-inline: auto; }
-
-/*-----------------------------------*\
-  HERO DOWNLOAD BUTTON SPECIFIC
-\*-----------------------------------*/
-.hero .btn.download-btn {
-  background-color: var(--bg-white);
-  color: var(--bg-black);
-  border-radius: var(--radius-pill);
-  padding: 1rem 2rem;
-  font-size: var(--fontSize-9);
-  font-weight: var(--weight-medium);
-  display: inline-flex;
+.hero-content {
+  display: flex;
   align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  position: relative;
-  z-index: 2;
+  gap: 20px;
 }
 
-.hero .btn.download-btn:hover {
-  background-color: var(--bg-light-gray);
-  color: var(--text-black);
+.hero-text {
+  color: var(--text-white);
+  font-size: var(--fontSize-5);
+  max-width: 500px;
 }
+
+.banner-outline {
+  position: relative;
+  max-width: max-content;
+  margin-inline: auto;
+}
+.banner-outline::after {
+  top: 20px;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  outline: 1px solid var(--border-eerie-black);
+  border-radius: var(--radius-pill);
+}
+
+.hero-banner {
+  position: relative;
+  border-radius: var(--radius-pill);
+}
+.hero-banner::after {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: var(--gradient-1);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.hero .btn {
+  margin-block: 20px;
+}
+
+.hero .shape {
+  position: absolute;
+  max-width: 100%;
+  z-index: -1;
+}
+.hero .shape-1 { top: -60px; left: 120px; }
+.hero .shape-2 { top: 180px; left: 0; }
 
 /*-----------------------------------*\
-  REST OF YOUR CSS REMAINS SAME
+  #SERVICE
 \*-----------------------------------*/
-/* Copy all your other styles from your main.css here, including service, about, project, cta, contact, footer, media queries, preloader, etc. */
-/* ... */
+.service { border-block-start: 1px solid var(--border-eerie-black); margin-block-start: var(--section-spacing); }
+.service .container { padding-inline: 0; }
+.service-item { border-block-end: 1px solid var(--border-eerie-black); }
+.service-card { position: relative; padding-block: 45px; }
+.service-card .card-icon { max-width: max-content; margin-inline: auto; transition: var(--transition-1); }
+.service-card .card-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  color: var(--text-white);
+  font-size: var(--fontSize-5);
+  font-weight: var(--weight-regular);
+  line-height: 1.3;
+  opacity: 0;
+  transition: var(--transition-1);
+}
+.service-card:is(:hover, :focus-visible) .card-title {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+.service-card:is(:hover, :focus-visible) .card-icon { opacity: 0; }
+
+/*-----------------------------------*\
+  #ABOUT
+\*-----------------------------------*/
+.tab-container { border: 1px solid var(--border-eerie-black); }
+.tab-btn { width: 100%; padding-block: 16px; border-block-end: 1px solid var(--border-eerie-black); transition: var(--transition-1); }
+.tab-btn:is(:hover, :focus-visible, .active) { background: var(--bg-eerie-black); }
+.tab-content { display: none; padding: 30px; }
+.tab-content.active { display: block; animation: fade 500ms linear forwards; }
+@keyframes fade { 0% { opacity: 0; } 100% { opacity: 1; } }
+.tab-content .grid-list { display: grid; gap: 30px; }
+.tab-content .section-title { margin-block-end: 30px; }
+.tab-content .section-text, .about-item:not(:last-child) { margin-block-end: 20px; }
+.about-item .span { line-height: 1.4; }
+.social-list { display: flex; align-items: center; gap: 20px; }
+.social-link { color: var(--text-white); }
+
+/*-----------------------------------*\
+  #CONTACT, #FOOTER, MEDIA QUERIES
+\*-----------------------------------*/
+/* Keep the rest of your original CSS unchanged */
+
